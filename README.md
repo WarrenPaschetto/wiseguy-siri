@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Voice-to-Text Transcription and Chatbot
 
-## Getting Started
+This project is a **voice-to-text transcription** web application that allows users to record audio, transcribe it into text using Azure OpenAI's Whisper model, and then receive a chatbot's response based on the transcribed text. The chatbot's personality is designed to be humorous, sarcastic, and inspired by mafia movie characters, making the conversation engaging and entertaining.
 
-First, run the development server:
+## Features
+
+- **Audio Recording**: Users can record audio through their browser and submit it for transcription.
+- **Transcription**: The recorded audio is sent to Azure OpenAI's Whisper model for transcription, converting the audio into text.
+- **Chatbot Interaction**: Once transcribed, the text is sent to an Azure OpenAI GPT-based chatbot that responds with a humorous, sarcastic reply based on the given prompt.
+- **Real-Time Feedback**: The application displays transcribed text and the chatbot's response in real time.
+- **Error Handling**: The application provides feedback if any issues arise, such as missing API keys or an audio file not being provided.
+
+## Technologies Used
+
+- **Next.js**: The React-based framework used for building the frontend and server-side logic.
+- **Azure OpenAI**: For both the transcription model (Whisper) and chat completion model (GPT).
+- **TypeScript**: Provides type safety and improved development experience.
+- **Lucide React**: Icon library used for the UI elements.
+- **HTML5 Audio API**: To capture and manipulate audio from the user's microphone.
+- **ElevenLabs**: To train my own voice and use as the response voice in the app.
+
+## Components Overview
+
+### Home Component
+- Handles the user interface for audio recording and submitting.
+- Manages the display of messages and bot responses.
+- Uses `useFormState` to handle the form submission and state updates.
+
+### Recorder Component
+- Manages the recording process, including microphone access and permissions.
+- Uses the `MediaRecorder` API to record audio and convert it into a `Blob` for submission.
+
+### Messages Component
+- Displays a list of transcribed messages and the chatbot’s responses.
+- Dynamically adjusts its UI based on whether there are messages or if the conversation is starting.
+
+### Transcription Server Function
+- Handles the server-side logic of submitting the audio file to Azure OpenAI Whisper for transcription.
+- Also handles sending the transcribed text to Azure's GPT model for a response.
+
+## Environment Variables
+
+To run this project, you will need to set the following environment variables in a `.env` file:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+AZURE_API_KEY=your-azure-api-key
+AZURE_ENDPOINT=your-azure-endpoint
+AZURE_DEPLOYMENT_NAME=your-azure-whisper-deployment-name
+AZURE_DEPLOYMENT_COMPLETIONS_NAME=your-azure-chat-gpt-deployment-name
