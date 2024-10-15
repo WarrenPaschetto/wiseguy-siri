@@ -1,4 +1,6 @@
 # Voice-to-Text Transcription and Chatbot
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 This project is a **Siri clone** web application that allows users to record audio, transcribe it into text using Azure OpenAI's Whisper model, receive a chatbot's response based on the transcribed 
 text, and then playback that transcription in a customized voice from ElevenLabs. The chatbot's personality is designed to be humorous, sarcastic, and inspired by mafia movie characters, making the conversation engaging and entertaining.
@@ -58,3 +60,9 @@ AZURE_API_KEY=your-azure-api-key
 AZURE_ENDPOINT=your-azure-endpoint
 AZURE_DEPLOYMENT_NAME=your-azure-whisper-deployment-name
 AZURE_DEPLOYMENT_COMPLETIONS_NAME=your-azure-chat-gpt-deployment-name
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
