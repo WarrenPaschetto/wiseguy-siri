@@ -1,6 +1,12 @@
 # Voice-to-Text Transcription and Chatbot
 
-This project is a **voice-to-text transcription** web application that allows users to record audio, transcribe it into text using Azure OpenAI's Whisper model, and then receive a chatbot's response based on the transcribed text. The chatbot's personality is designed to be humorous, sarcastic, and inspired by mafia movie characters, making the conversation engaging and entertaining.
+This project is a **Siri clone** web application that allows users to record audio, transcribe it into text using Azure OpenAI's Whisper model, receive a chatbot's response based on the transcribed 
+text, and then playback that transcription in a customized voice from ElevenLabs. The chatbot's personality is designed to be humorous, sarcastic, and inspired by mafia movie characters, making the conversation engaging and entertaining.
+
+## Demo Video ⬇️
+
+[![Watch the demo video](https://img.youtube.com/vi/Dvllxk4jTs0/0.jpg)](https://www.youtube.com/embed/Dvllxk4jTs0)
+
 
 ## Features
 
@@ -8,6 +14,7 @@ This project is a **voice-to-text transcription** web application that allows us
 - **Transcription**: The recorded audio is sent to Azure OpenAI's Whisper model for transcription, converting the audio into text.
 - **Chatbot Interaction**: Once transcribed, the text is sent to an Azure OpenAI GPT-based chatbot that responds with a humorous, sarcastic reply based on the given prompt.
 - **Real-Time Feedback**: The application displays transcribed text and the chatbot's response in real time.
+- **Voice Synthesizer**: The chatbot's response is then sent to ElevenLabs and read aloud using a customized voice.
 - **Error Handling**: The application provides feedback if any issues arise, such as missing API keys or an audio file not being provided.
 
 ## Technologies Used
@@ -37,6 +44,10 @@ This project is a **voice-to-text transcription** web application that allows us
 ### Transcription Server Function
 - Handles the server-side logic of submitting the audio file to Azure OpenAI Whisper for transcription.
 - Also handles sending the transcribed text to Azure's GPT model for a response.
+
+### Voice Synthesizer Component
+- Takes the GPT model's response and sends it to ElevenLabs.
+- Fetches audio from ElevenLabs created with customized voice.
 
 ## Environment Variables
 
